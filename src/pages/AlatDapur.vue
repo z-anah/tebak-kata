@@ -10,7 +10,7 @@ export default defineComponent({
       items: alat,
       timer: 0 as number,
       seconds: 10,
-      gameSeconds: 60*3,
+      gameSeconds: 60 * 3,
       initialSeconds: 10,
       toGuess: "",
       disabled: ref(false),
@@ -22,17 +22,16 @@ export default defineComponent({
     }
   },
   created() {
-    this.toGuess = this.items[Math.floor(Math.random() * this.items.length)].label;
+    this.reset();
     this.timer = setInterval(() => {
       this.gameSeconds--;
-      if(this.gameSeconds == 0) {
+      if (this.gameSeconds == 0) {
         clearInterval(this.timer);
-        this.$router.push('/result/' + this.score*10);
+        this.$router.push('/result/' + this.score * 10);
       } else if (this.gameSeconds == 30) {
         this.audioClicking.play();
         this.audioClicking.currentTime = 0;
-      } else
-      if (this.seconds == 4) {
+      } else if (this.seconds == 4) {
         this.disabled = true;
       } else if (this.seconds == 0) {
         this.disabled = false;
@@ -88,7 +87,7 @@ export default defineComponent({
     <div>
       <div class="p-4 flex items-center justify-center">
         <div class="text-4xl text-center">
-          SCORE: {{ score*10 }}
+          SCORE: {{ score * 10 }}
         </div>
       </div>
       <div :class="{ shake: disabled }">
@@ -101,83 +100,22 @@ export default defineComponent({
 
       <div class="p-8 bg-white shadow-md flex items-center justify-center">
         <div class="text-[50px] font-bold text-center">
-          <p class="greys">{{ toGuess }}</p>
+          <p class="game-font greys">{{ toGuess }}</p>
         </div>
       </div>
       <div class="py-8 flex justify-around">
         <img @click="isFalse" src="https://img.icons8.com/?size=48&id=fYgQxDaH069W&format=png" />
         <img @click="isTrue" src="https://img.icons8.com/?size=48&id=70yRC8npwT3d&format=png" />
       </div>
-          <div class="p-4 flex items-center justify-center">
-            <div class="text-2xl font-extralight text-center">
-              {{ formattedTimeGame }}
-            </div>
-          </div>
+      <div class="p-4 flex items-center justify-center">
+        <div class="text-2xl font-extralight text-center">
+          {{ formattedTimeGame }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.shake {
-  animation: shake 3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  transform: translate3d(0, 0, 0);
-  color: red;
-}
-
-@keyframes shake {
-
-  10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-
-  20%,
-  80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
-  }
-}
-
-@font-face {
-  font-family: 'Rocher';
-  src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
-}
-
-p {
-  font-family: 'Rocher';
-}
-
-@font-palette-values --Grays {
-  font-family: Rocher;
-  base-palette: 9;
-}
-
-@font-palette-values --Purples {
-  font-family: Rocher;
-  base-palette: 6;
-}
-
-@font-palette-values --Mint {
-  font-family: Rocher;
-  base-palette: 7;
-}
-.grays {
-  font-palette: --Grays;
-}
-.purples {
-  font-palette: --Purples;
-}
-.mint {
-  font-palette: --Mint;
-}
+@import '../style/css/common.css';
 </style>
