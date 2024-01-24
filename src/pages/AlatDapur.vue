@@ -8,9 +8,9 @@ export default defineComponent({
   data: () => {
     return {
       items: alat,
-      // Timeout in typescript
       timer: 0 as number,
       seconds: 10,
+      gameSeconds: 60*3,
       initialSeconds: 10,
       toGuess: "",
       disabled: ref(false),
@@ -18,11 +18,20 @@ export default defineComponent({
       audioFail: new Audio('./fail.mp3'),
       audioSuccess: new Audio('./correct.mp3'),
       audioSkip: new Audio('./skip.mp3'),
+      audioClicking: new Audio('./clicking.mp3'),
     }
   },
   created() {
     this.toGuess = this.items[Math.floor(Math.random() * this.items.length)].label;
     this.timer = setInterval(() => {
+      this.gameSeconds--;
+      if(this.gameSeconds == 0) {
+        clearInterval(this.timer);
+        this.$router.push('/result/' + this.score*10);
+      } else if (this.gameSeconds == 30) {
+        this.audioClicking.play();
+        this.audioClicking.currentTime = 0;
+      } else
       if (this.seconds == 4) {
         this.disabled = true;
       } else if (this.seconds == 0) {
@@ -46,6 +55,11 @@ export default defineComponent({
     formattedTime() {
       let minutes = Math.floor(this.seconds / 60);
       let seconds = this.seconds % 60;
+      return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    },
+    formattedTimeGame() {
+      let minutes = Math.floor(this.gameSeconds / 60);
+      let seconds = this.gameSeconds % 60;
       return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     },
   },
@@ -94,6 +108,11 @@ export default defineComponent({
         <img @click="isFalse" src="https://img.icons8.com/?size=48&id=fYgQxDaH069W&format=png" />
         <img @click="isTrue" src="https://img.icons8.com/?size=48&id=70yRC8npwT3d&format=png" />
       </div>
+          <div class="p-4 flex items-center justify-center">
+            <div class="text-2xl font-extralight text-center">
+              {{ formattedTimeGame }}
+            </div>
+          </div>
     </div>
   </div>
 </template>
@@ -152,15 +171,12 @@ p {
   font-family: Rocher;
   base-palette: 7;
 }
-
 .grays {
   font-palette: --Grays;
 }
-
 .purples {
   font-palette: --Purples;
 }
-
 .mint {
   font-palette: --Mint;
 }
