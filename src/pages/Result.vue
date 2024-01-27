@@ -1,6 +1,5 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import alat from '../data/alat-dapur';
 
 export default defineComponent({
   name: 'App',
@@ -46,3 +45,4 @@ export default defineComponent({
 <style scoped>
 @import '../style/css/common.css';
 </style>
+../data/data

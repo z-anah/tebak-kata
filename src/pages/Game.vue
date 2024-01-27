@@ -1,17 +1,18 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import alat from '../data/alat-dapur';
+import data from '../data/data';
+import t from '@/data/alatdapur';
 
 export default defineComponent({
   name: 'App',
   components: {},
   data: () => {
     return {
-      items: alat,
+      items: [] as any,
       timer: 0 as number,
-      seconds: 10,
-      gameSeconds: 60 * 3,
-      initialSeconds: 10,
+      seconds: 0 as number,
+      gameSeconds: 0 as number,
+      initialSeconds: 0 as number,
       toGuess: "",
       disabled: ref(false),
       score: 0,
@@ -19,9 +20,11 @@ export default defineComponent({
       audioSuccess: new Audio('./correct.mp3'),
       audioSkip: new Audio('./skip.mp3'),
       audioClicking: new Audio('./clicking.mp3'),
+      gameType: "",
     }
   },
   created() {
+    this.initMe();
     this.reset();
     this.timer = setInterval(() => {
       this.gameSeconds--;
@@ -63,6 +66,13 @@ export default defineComponent({
     },
   },
   methods: {
+    initMe() {
+      this.seconds = parseInt(this.$route.params.wordtime + "") == 0 ? 30 : parseInt(this.$route.params.wordtime + "");
+      this.gameSeconds = parseInt(this.$route.params.gametime + "") == 0 ? 60 * 5 : parseInt(this.$route.params.gametime + "");
+      this.initialSeconds = parseInt(this.$route.params.wordtime + "") == 0 ? 30 : parseInt(this.$route.params.wordtime + "");
+      this.gameType = this.$route.params.gametype + "";
+      this.items = data[this.gameType] ;
+    },
     isTrue() {
       this.score++;
       this.reset();
@@ -77,6 +87,7 @@ export default defineComponent({
     reset() {
       this.seconds = this.initialSeconds;
       this.toGuess = this.items[Math.floor(Math.random() * this.items.length)].label;
+      this.disabled = false;
     },
   }
 });
@@ -119,3 +130,4 @@ export default defineComponent({
 <style scoped>
 @import '../style/css/common.css';
 </style>
+../data/data

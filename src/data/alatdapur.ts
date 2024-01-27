@@ -1,4 +1,4 @@
-const test = [
+const t = [
   {
     label: "Pisau Dapur",
     def: "Alat tajam dengan gagang yang digunakan untuk memotong bahan makanan.",
@@ -367,4 +367,4 @@ const test = [
     def: "Alat untuk membuka tutup botol dengan mudah.",
   },
 ];
-export default test;
+export default t;
