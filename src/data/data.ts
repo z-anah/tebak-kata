@@ -14,3 +14,4 @@ export { default as warna } from "./type/warna";
 export { default as makeup } from "./type/makeup";
 export { default as alatsekolah } from "./type/alatsekolah";
 export { default as makanan } from "./type/makanan";
+export { default as makanantradisionalindonesia } from "./type/makanantradisionalindonesia";

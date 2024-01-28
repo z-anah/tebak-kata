@@ -70,6 +70,10 @@ export default defineComponent({
           img: "https://img.icons8.com/?size=80&id=r5NZ8ADZLAWG&format=png",
           label: "Makanan",
         },
+        {
+          img: "https://img.icons8.com/?size=80&id=r5NZ8ADZLAWG&format=png",
+          label: "Makanan Tradisional Indonesia",
+        },
         // {
         //   img: "xxx",
         //   label: "xxx",
