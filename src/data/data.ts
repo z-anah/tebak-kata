@@ -11,3 +11,6 @@ export { default as dalamtubuh } from "./type/dalamtubuh";
 export { default as sayur } from "./type/sayur";
 export { default as baju } from "./type/baju";
 export { default as warna } from "./type/warna";
+export { default as makeup } from "./type/makeup";
+export { default as alatsekolah } from "./type/alatsekolah";
+export { default as makanan } from "./type/makanan";

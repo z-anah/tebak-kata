@@ -57,7 +57,23 @@ export default defineComponent({
         {
           img:"https://img.icons8.com/?size=80&id=Hs4y0qsqaZ6G&format=png",
           label: "Warna",
-        }
+        },
+        {
+          img:"https://img.icons8.com/?size=80&id=eiswqWDOM6o2&format=png",
+          label:"Make Up",
+        }, 
+        {
+          img: "https://img.icons8.com/?size=80&id=XAg8ooTyo7Dl&format=png",
+          label: "Alat Sekolah",
+        },
+        {
+          img: "https://img.icons8.com/?size=80&id=r5NZ8ADZLAWG&format=png",
+          label: "Makanan",
+        },
+        // {
+        //   img: "xxx",
+        //   label: "xxx",
+        // },
       ] as any,
     };
   },
