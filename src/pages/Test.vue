@@ -86,8 +86,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="flex items-center justify-center h-screen">
-    <div class="grid grid-cols-5 gap-4">
+  <div class="flex items-center justify-center">
+    <div class="pt-10 grid grid-cols-5 gap-4">
       <div v-for="item in gametype" :key="item.label"
         class="w-32 h-32 bg-white shadow-md flex items-center justify-center rounded-md">
         <router-link :to="'/prepare-game/'+ formatString(item.label)">

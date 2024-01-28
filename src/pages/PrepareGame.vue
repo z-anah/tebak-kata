@@ -35,9 +35,7 @@ export default defineComponent({
       <p class="text-[40px]" >Word time</p>
       <input type="number" v-model="wordTime" placeholder="Word time" />
       <br>
-          <div class="py-8 flex justify-center">
       <button class="text-[50px] game-font mint center text-center buttonMeBig" @click="test">Let's Go</button>
-      </div>
     </div>
   </div>
 </template>

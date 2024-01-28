@@ -126,22 +126,22 @@ export default defineComponent({
 <template>
   <div class="flex items-center justify-center h-screen">
     <div>
-      <div class="p-4 flex items-center justify-center">
+      <div class="p-2 flex items-center justify-center">
         <div class="text-4xl text-center">SCORE: {{ score * 10 }}</div>
       </div>
       <div :class="{ shake: disabled }">
-        <div class="p-4 flex items-center justify-center">
+        <div class="p-2 flex items-center justify-center">
           <div class="text-2xl font-extralight text-center">
             {{ formattedTime }}
           </div>
         </div>
       </div>
-      <div class="px-10 bg-white shadow-md flex items-center justify-center">
+      <div class="px-2 bg-white shadow-md flex items-center justify-center">
         <div class="text-[80px] my-[-4px] font-bold text-center">
           <p class="game-font">{{ toGuess }}</p>
         </div>
       </div>
-      <div class="py-8 flex justify-center">
+      <div class="py-2 flex justify-center">
         <button class="buttonMe" @click="isFalse">
           <img src="https://img.icons8.com/?size=48&id=fYgQxDaH069W&format=png" />
         </button>
@@ -150,7 +150,7 @@ export default defineComponent({
           <img src="https://img.icons8.com/?size=48&id=70yRC8npwT3d&format=png" />
         </button>
       </div>
-      <div class="p-4 flex items-center justify-center">
+      <div class="p-2 flex items-center justify-center">
         <div class="text-2xl font-extralight text-center">
           {{ formattedTimeGame }}
         </div>
