@@ -1,9 +1,13 @@
-import alatdapur from './alatdapur';
-import kendaraan from './kendaraan';
-import hewan from './hewan';
-import binatanglaut from './binatang-laut';
-import pekerjaan from './pekerjaan';
-import logo from './logo';
-
-const data = {alatdapur, kendaraan, hewan, binatanglaut, pekerjaan, logo};
-export default data;
+export { default as alatdapur } from "./type/alatdapur";
+export { default as kendaraan } from "./type/kendaraan";
+export { default as hewan } from "./type/hewan";
+export { default as binatanglaut } from "./type/binatang-laut";
+export { default as pekerjaan } from "./type/pekerjaan";
+export { default as logo } from "./type/logo";
+export { default as negara } from "./type/negara";
+export { default as buah } from "./type/buah";
+export { default as badan } from "./type/badan";
+export { default as dalamtubuh } from "./type/dalamtubuh";
+export { default as sayur } from "./type/sayur";
+export { default as baju } from "./type/baju";
+export { default as warna } from "./type/warna";

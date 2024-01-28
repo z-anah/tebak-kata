@@ -1,4 +1,23 @@
 
+.buttonMe {
+  background-color: #e7e5e5;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
+.buttonMeBig {
+  background-color: #e7e5e5;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
+
 .shake {
   animation: shake 3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
